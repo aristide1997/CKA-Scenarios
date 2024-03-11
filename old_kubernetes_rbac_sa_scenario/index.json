@@ -1,6 +1,5 @@
-
 {
-  "title": "Kubernetes RBAC and Service Account Exploration",
+  "title": "OLD Kubernetes RBAC and Service Account Exploration",
   "description": "Deep dive into Kubernetes Role-Based Access Control (RBAC) and Service Accounts to manage access to Kubernetes resources.",
   "details": {
     "intro": {
