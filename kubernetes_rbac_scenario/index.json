@@ -1,24 +1,21 @@
+
 {
-  "title": "Provisioning Persistent Storage - Dynamic Provisioning",
+  "title": "Kubernetes RBAC and Service Account Management",
+  "description": "Learn how to manage Roles, RoleBindings, and Service Accounts in Kubernetes.",
   "details": {
     "intro": {
       "text": "intro.md"
     },
     "steps": [
       {
-        "title": "Understanding Persistent Volumes and Claims",
+        "title": "Create a Service Account",
         "text": "step1/text.md",
         "verify": "step1/verify.sh"
       },
       {
-        "title": "Creating and Configuring a PersistentVolumeClaim",
+        "title": "Create a Role and RoleBinding",
         "text": "step2/text.md",
         "verify": "step2/verify.sh"
-      },
-      {
-        "title": "Attaching PVC to a Pod and Verifying the Setup",
-        "text": "step3/text.md",
-        "verify": "step3/verify.sh"
       }
     ],
     "finish": {

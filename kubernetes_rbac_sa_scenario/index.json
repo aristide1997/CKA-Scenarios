@@ -1,0 +1,33 @@
+
+{
+  "title": "Kubernetes RBAC and Service Account Exploration",
+  "description": "Deep dive into Kubernetes Role-Based Access Control (RBAC) and Service Accounts to manage access to Kubernetes resources.",
+  "details": {
+    "intro": {
+      "text": "intro.md"
+    },
+    "steps": [
+      {
+        "title": "Create a Service Account",
+        "text": "step1/text.md",
+        "verify": "step1/verify.sh"
+      },
+      {
+        "title": "Create a Role and RoleBinding",
+        "text": "step2/text.md",
+        "verify": "step2/verify.sh"
+      },
+      {
+        "title": "Use the Service Account to Access Resources",
+        "text": "step3/text.md",
+        "verify": "step3/verify.sh"
+      }
+    ],
+    "finish": {
+      "text": "finish.md"
+    }
+  },
+  "backend": {
+    "imageid": "kubernetes-kubeadm-2nodes"
+  }
+}

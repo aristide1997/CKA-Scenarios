@@ -1,1 +1,0 @@
-Congratulations! You've successfully completed the scenario on provisioning persistent storage in Kubernetes. You've learned how to work with PVs, PVCs, and dynamically provision storage, preparing you for managing stateful applications in Kubernetes environments.
