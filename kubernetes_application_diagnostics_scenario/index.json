@@ -1,0 +1,28 @@
+
+{
+  "title": "Kubernetes Application Diagnostics",
+  "description": "Learn to identify and resolve issues in a deployed application that is not accessible externally, focusing on pod health and network policies.",
+  "details": {
+    "intro": {
+      "text": "intro.md"
+    },
+    "steps": [
+      {
+        "title": "Diagnose Pod Health Issues",
+        "text": "step1/text.md",
+        "verify": "step1/verify.sh"
+      },
+      {
+        "title": "Identify Misconfigured Network Policies",
+        "text": "step2/text.md",
+        "verify": "step2/verify.sh"
+      }
+    ],
+    "finish": {
+      "text": "finish.md"
+    }
+  },
+  "backend": {
+    "imageid": "kubernetes-kubeadm-2nodes"
+  }
+}
