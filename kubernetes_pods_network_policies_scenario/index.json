@@ -1,7 +1,6 @@
-
 {
   "title": "Kubernetes Pods and Network Policies",
-  "description": "Learn how to manage pods and apply network policies to control the flow of traffic.",
+  "description": "SIMPLER - TO FIX Learn how to manage pods and apply network policies to control the flow of traffic.",
   "details": {
     "intro": {
       "text": "intro.md"

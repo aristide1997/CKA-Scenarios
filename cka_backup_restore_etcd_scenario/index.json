@@ -1,23 +1,27 @@
 
 {
-  "title": "Kubernetes Application Diagnostics",
-  "description": "Learn to identify and resolve issues in a deployed application that is not accessible externally, focusing on pod health and network policies.",
+  "title": "Backup and Restore etcd Data",
+  "description": "Learn how to safely backup and restore etcd data, ensuring the resilience and recoverability of your Kubernetes cluster.",
   "details": {
     "intro": {
       "text": "intro.md"
     },
     "steps": [
       {
-        "title": "Diagnose Pod Health Issues",
+        "title": "Backup etcd Data",
         "text": "step1/text.md",
+        "background": "step1/background.sh",
         "verify": "step1/verify.sh"
       },
       {
-        "title": "Identify Misconfigured Network Policies",
+        "title": "Restore etcd Data",
         "text": "step2/text.md",
         "verify": "step2/verify.sh"
       }
     ],
+    "assets": {
+      "host01": []
+    },
     "finish": {
       "text": "finish.md"
     }
