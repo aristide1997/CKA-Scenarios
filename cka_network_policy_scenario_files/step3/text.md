@@ -12,14 +12,16 @@ In this step, you'll test the network policy's effectiveness in allowing traffic
 - Deploy a temporary busybox pod in the `frontend` namespace and another in a different namespace (e.g., `default`).
 - Use these pods to test connectivity to the `nginx-backend` pod.
 
-<Tips>
+<details>
+<summary>Tips</summary>
 
 - Deploy a temporary pod for testing: `kubectl run tmp-busybox --rm -ti --namespace=<namespace-name> --image=busybox -- sh`
 - Test connectivity with `wget` (e.g., `wget -qO- <nginx-backend-pod-ip>`). Replace `<nginx-backend-pod-ip>` with the actual IP address of the `nginx-backend` pod.
 
-</Tips>
+</details>
 
-<Solution>
+<details>
+<summary>Solution</summary>
 
 1. From a pod in the `frontend` namespace:
 
@@ -37,4 +39,4 @@ kubectl run tmp-busybox --rm -ti --namespace=default --image=busybox -- sh
 wget -qO- <nginx-backend-pod-ip>
 ```
 
-</Solution>
+</details>
