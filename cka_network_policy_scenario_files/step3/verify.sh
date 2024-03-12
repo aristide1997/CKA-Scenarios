@@ -4,34 +4,26 @@
 backend_pod_ip=$(kubectl get pod -n backend nginx-backend -o jsonpath='{.status.podIP}')
 echo "nginx-backend pod IP: $backend_pod_ip"
 
-# Test connectivity from the frontend namespace
+# Define a short timeout for wget (e.g., 5 seconds)
+wget_timeout=5
+
+# Test connectivity from the frontend namespace and capture the output
 echo "Testing connectivity from frontend namespace..."
-kubectl run tmp-busybox-frontend --namespace=frontend --image=busybox --restart=Never -- sh -c "wget -qO- $backend_pod_ip"
-result_frontend=$?
-
-# Clean up the temporary pod in the frontend namespace
-kubectl delete pod tmp-busybox-frontend --namespace=frontend --wait=false
-
-# Test connectivity from the default namespace
-echo "Testing connectivity from default namespace..."
-kubectl run tmp-busybox-default --namespace=default --image=busybox --restart=Never -- sh -c "wget -qO- $backend_pod_ip"
-result_default=$?
-
-# Clean up the temporary pod in the default namespace
-kubectl delete pod tmp-busybox-default --namespace=default --wait=false
-
-# Check results and exit
-if [ $result_frontend -eq 0 ]; then
-    echo "Connectivity test from frontend namespace: SUCCESS"
-else
+if ! output=$(kubectl run tmp-busybox-frontend --rm --attach --namespace=frontend --image=busybox --restart=Never -- sh -c "wget -T $wget_timeout -qO- $backend_pod_ip" 2>&1); then
     echo "Connectivity test from frontend namespace: FAILURE"
+    echo "$output"
     exit 1
+else
+    echo "Connectivity test from frontend namespace: SUCCESS"
 fi
 
-if [ $result_default -eq 0 ]; then
-    echo "Connectivity test from default namespace: FAILURE (expected to fail)"
+# Test connectivity from the default namespace and capture the output
+echo "Testing connectivity from default namespace..."
+if ! output=$(kubectl run tmp-busybox-default --rm --attach --namespace=default --image=busybox --restart=Never -- sh -c "wget -T $wget_timeout -qO- $backend_pod_ip" 2>&1); then
+    echo "Connectivity test from default namespace: SUCCESS (communication blocked as expected)"
 else
-    echo "Connectivity test from default namespace: SUCCESS (unexpected success, should fail)"
+    echo "Connectivity test from default namespace: FAILURE (expected to fail)"
+    echo "$output"
     exit 1
 fi
 
