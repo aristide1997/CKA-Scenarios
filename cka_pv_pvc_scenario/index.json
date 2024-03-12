@@ -1,0 +1,34 @@
+{
+  "title": "Managing Persistent Volumes and Persistent Volume Claims",
+  "description": "Learn how to create and manage Persistent Volumes (PVs) and Persistent Volume Claims (PVCs) in Kubernetes.",
+  "details": {
+    "intro": {
+      "text": "intro.md"
+    },
+    "steps": [
+      {
+        "title": "Create a Persistent Volume",
+        "text": "step1/text.md",
+        "background": "step1/background.sh",
+        "verify": "step1/verify.sh"
+      },
+      {
+        "title": "Create a Persistent Volume Claim",
+        "text": "step2/text.md",
+        "verify": "step2/verify.sh"
+      },
+      {
+        "title": "Bind PVC to PV",
+        "text": "step3/text.md",
+        "verify": "step3/verify.sh"
+      }
+    ],
+    "assets": {},
+    "finish": {
+      "text": "finish.md"
+    }
+  },
+  "backend": {
+    "imageid": "kubernetes-kubeadm-2nodes"
+  }
+}

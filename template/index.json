@@ -1,0 +1,36 @@
+{
+  "title": "Title, eg. Kubernetes Pods and Network Policies",
+  "description": "Description, eg. Learn how to manage pods and apply network policies to control the flow of traffic.",
+  "details": {
+    "intro": {
+      "text": "intro.md"
+    },
+    "steps": [
+      {
+        "title": "Deploy a Pod",
+        "text": "step1/text.md",
+        "background": "step1/background.sh",
+        "verify": "step1/verify.sh"
+      },
+      {
+        "title": "Apply a Network Policy",
+        "text": "step2/text.md",
+        "verify": "step2/verify.sh"
+      },
+      {
+        "title": "Test Network Policy Enforcement",
+        "text": "step3/text.md",
+        "verify": "step3/verify.sh"
+      }
+    ],
+    "assets": {
+      "host01": [{ "file": "dashboard.yaml", "target": "/root", "chmod": "+w" }]
+    },
+    "finish": {
+      "text": "finish.md"
+    }
+  },
+  "backend": {
+    "imageid": "kubernetes-kubeadm-2nodes"
+  }
+}
