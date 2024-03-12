@@ -32,6 +32,7 @@ spec:
   resources:
     requests:
       storage: 1Gi
+  storageClassName: ""
 ```
 
 Create the PVC by applying the YAML file:
