@@ -33,7 +33,7 @@ spec:
     - from:
         - namespaceSelector:
             matchLabels:
-              name: frontend
+              kubernetes.io/metadata.name: frontend
 ```
 
 - Apply the network policy with `kubectl apply -f backend-policy.yaml`.

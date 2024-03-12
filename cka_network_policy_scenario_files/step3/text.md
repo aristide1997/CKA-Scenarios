@@ -7,11 +7,6 @@ In this step, you'll test the network policy's effectiveness in allowing traffic
 1. **Verify Connectivity**: Confirm that a pod in the `frontend` namespace can successfully connect to the `nginx-backend` pod in the `backend` namespace.
 2. **Verify Isolation**: Ensure that pods in other namespaces (not `frontend`) cannot connect to the `nginx-backend` pod.
 
-### Instructions
-
-- Deploy a temporary busybox pod in the `frontend` namespace and another in a different namespace (e.g., `default`).
-- Use these pods to test connectivity to the `nginx-backend` pod.
-
 <details>
 <summary>Tips</summary>
 
