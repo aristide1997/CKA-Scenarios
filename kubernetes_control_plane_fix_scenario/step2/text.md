@@ -14,4 +14,8 @@ The etcd cluster is in an unhealthy state due to a configuration issue. Diagnose
 
 The etcd service's client URL has been misconfigured. Correct the `--listen-client-urls` setting in `/etc/kubernetes/manifests/etcd.yaml` back to `https://127.0.0.1:2379`, then restart the kubelet to apply the change.
 
+```bash
+sudo sed -i 's/--listen-client-urls=https:\/\/127.0.0.1:12379/--listen-client-urls=https:\/\/127.0.0.1:2379/g' /etc/kubernetes/manifests/etcd.yaml
+```
+
 </details>
