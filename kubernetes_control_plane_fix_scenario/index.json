@@ -7,19 +7,19 @@
     },
     "steps": [
       {
-        "title": "Fix API Server Admission Control Configuration",
+        "title": "Fix API Server Configuration",
         "text": "step1/text.md",
         "background": "step1/background.sh",
         "verify": "step1/verify.sh"
       },
       {
-        "title": "Restore etcd from Snapshot",
+        "title": "Fix etcd misconfiguration",
         "text": "step2/text.md",
         "background": "step2/background.sh",
         "verify": "step2/verify.sh"
       },
       {
-        "title": "Resolve Misconfigured Network Policies",
+        "title": "Further Controlplane Issues",
         "text": "step3/text.md",
         "background": "step3/background.sh",
         "verify": "step3/verify.sh"
