@@ -1,34 +1,32 @@
 #!/bin/bash
 
-# This script verifies if the pod "anti-affinity-demo-pod" with the specified node anti-affinity is correctly created and scheduled.
+# Define variables
+POD_NAME="anti-affinity-demo-pod"
+LABEL_KEY="disktype"
+LABEL_VALUE="ssd"
 
-# Pod names to check
-FIRST_POD_NAME="affinity-demo-pod"
-SECOND_POD_NAME="anti-affinity-demo-pod"
+# Check if the pod exists and retrieve its status alongside the node affinity configuration
+podStatus=$(kubectl get pod $POD_NAME -o jsonpath='{.status.phase}')
+podNodeAffinity=$(kubectl get pod $POD_NAME -o jsonpath='{.spec.affinity.nodeAffinity}' 2>/dev/null)
 
-# Check if both pods exist
-if ! kubectl get pod $FIRST_POD_NAME &> /dev/null; then
-  echo "First pod $FIRST_POD_NAME does not exist."
+# Verify pod existence
+if [ -z "$podNodeAffinity" ]; then
+  echo "Error: Pod $POD_NAME does not exist or does not have node affinity configured."
   exit 1
 fi
 
-if ! kubectl get pod $SECOND_POD_NAME &> /dev/null; then
-  echo "Second pod $SECOND_POD_NAME does not exist."
+# Verify the pod is running
+if [ "$podStatus" != "Running" ]; then
+  echo "Error: Pod $POD_NAME is not in a Running state, but it is in $podStatus."
   exit 1
 fi
 
-# Get the nodeNames where the pods are scheduled
-firstNodeName=$(kubectl get pod $FIRST_POD_NAME -o=jsonpath='{.spec.nodeName}')
-secondNodeName=$(kubectl get pod $SECOND_POD_NAME -o=jsonpath='{.spec.nodeName}')
-
-# Check if the nodeNames are not empty and not the same
-if [ -z "$firstNodeName" ] || [ -z "$secondNodeName" ]; then
-  echo "One or both pods are not scheduled on any node."
+# Verify the node affinity rule is correctly configured to avoid disktype=ssd
+if ! echo $podNodeAffinity | grep -q "$LABEL_KEY" && echo $podNodeAffinity | grep -q "NotIn" && echo $podNodeAffinity | grep -q "$LABEL_VALUE"; then
+  echo "Error: Pod $POD_NAME does not have the correct node affinity rule to avoid nodes with $LABEL_KEY=$LABEL_VALUE."
   exit 1
-elif [ "$firstNodeName" = "$secondNodeName" ]; then
-  echo "The pods are scheduled on the same node, violating the anti-affinity rule."
-  exit 1
-else
-  echo "Success! The pods are scheduled on different nodes, adhering to the anti-affinity rule."
-  exit 0
 fi
+
+# The pod has the correct node affinity configuration and is running
+echo "Success: Pod $POD_NAME is running and has the correct node affinity configured to avoid nodes with label $LABEL_KEY=$LABEL_VALUE."
+exit 0

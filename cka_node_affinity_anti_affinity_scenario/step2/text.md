@@ -10,7 +10,7 @@ Create a pod named `anti-affinity-demo-pod` using the `nginx` image, ensuring it
 <summary>Tips</summary>
 
 - Construct a pod definition for `anti-affinity-demo-pod` that includes node anti-affinity rules to avoid scheduling on the node with `disktype=ssd`.
-- Use the `kubectl describe nodes` command to view labels associated with each node, helping you to craft your anti-affinity rule.
+- The "anti-affinity" rule doesn't explicitly exist, you can use a "NotIn" operator instead.
 
 </details>
 
@@ -29,15 +29,14 @@ spec:
     - name: nginx
       image: nginx
   affinity:
-    podAntiAffinity:
+    nodeAffinity:
       requiredDuringSchedulingIgnoredDuringExecution:
-        - labelSelector:
-            matchExpressions:
-              - key: "disktype"
-                operator: "NotIn"
+        nodeSelectorTerms:
+          - matchExpressions:
+              - key: disktype
+                operator: NotIn
                 values:
-                  - "ssd"
-          topologyKey: "kubernetes.io/hostname"
+                  - ssd
 ```
 
 This example ensures your pod does not schedule on nodes with the `disktype=ssd` label.
