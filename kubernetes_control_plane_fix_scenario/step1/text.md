@@ -7,7 +7,7 @@ The Kubernetes API server is currently unresponsive. Diagnose the issue and rest
 <details>
 <summary>Tips</summary>
 
-- Use `journalctl -u kube-apiserver` to review the API server logs.
+- Use `crictl logs` or look into `/var/log/pods/` to review the API server logs.
 - Inspect the kube-apiserver manifest at `/etc/kubernetes/manifests/kube-apiserver.yaml`.
 </details>
 
