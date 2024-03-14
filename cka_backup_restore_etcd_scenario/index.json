@@ -1,7 +1,6 @@
-
 {
   "title": "Backup and Restore etcd Data",
-  "description": "Learn how to safely backup and restore etcd data, ensuring the resilience and recoverability of your Kubernetes cluster.",
+  "description": "Medium - Learn how to safely backup and restore etcd data, ensuring the resilience and recoverability of your Kubernetes cluster.",
   "details": {
     "intro": {
       "text": "intro.md"

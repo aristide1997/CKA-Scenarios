@@ -1,6 +1,6 @@
 {
   "title": "Managing Persistent Volumes and Persistent Volume Claims",
-  "description": "Learn how to create and manage Persistent Volumes (PVs) and Persistent Volume Claims (PVCs) in Kubernetes.",
+  "description": "[Easy] Learn how to create and manage Persistent Volumes (PVs) and Persistent Volume Claims (PVCs) in Kubernetes.",
   "details": {
     "intro": {
       "text": "intro.md"
