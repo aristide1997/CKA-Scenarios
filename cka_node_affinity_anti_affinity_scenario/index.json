@@ -1,0 +1,27 @@
+{
+  "title": "Configuring Node Affinity/Anti-affinity Rules",
+  "description": "Learn how to use node affinity and anti-affinity rules to control where pods are scheduled in your Kubernetes cluster.",
+  "details": {
+    "intro": {
+      "text": "intro.md"
+    },
+    "steps": [
+      {
+        "title": "Configuring Node Affinity",
+        "text": "step1/text.md",
+        "verify": "step1/verify.sh"
+      },
+      {
+        "title": "Configuring Node Anti-affinity",
+        "text": "step2/text.md",
+        "verify": "step2/verify.sh"
+      }
+    ],
+    "finish": {
+      "text": "finish.md"
+    }
+  },
+  "backend": {
+    "imageid": "kubernetes-kubeadm-2nodes"
+  }
+}

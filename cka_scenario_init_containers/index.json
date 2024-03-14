@@ -1,0 +1,29 @@
+{
+  "title": "Initializing Pods with Shared Data using Init Containers",
+  "description": "Discover how to leverage init containers in Kubernetes pods for setting up shared data accessible to the main application container.",
+  "details": {
+    "intro": {
+      "text": "intro.md"
+    },
+    "steps": [
+      {
+        "title": "Deploy a Pod with an Init Container",
+        "text": "step1/text.md",
+        "verify": "step1/verify.sh"
+      },
+      {
+        "title": "Verify Shared Data Access",
+        "text": "step2/text.md",
+        "verify": "step2/verify.sh"
+      }
+    ],
+    "assets": {
+    },
+    "finish": {
+      "text": "finish.md"
+    }
+  },
+  "backend": {
+    "imageid": "kubernetes-kubeadm-2nodes"
+  }
+}
