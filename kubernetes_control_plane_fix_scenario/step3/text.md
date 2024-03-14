@@ -1,4 +1,4 @@
-**Step: 2/3**
+**Step: 3/3**
 
 ## Correct Scheduler and Controller Manager Misconfigurations
 
