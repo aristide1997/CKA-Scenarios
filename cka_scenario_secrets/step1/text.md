@@ -11,15 +11,14 @@ In this exercise, you'll securely manage sensitive information in Kubernetes usi
 - Verify that the pod can access the data stored in `my-secret`.
 
 <details>
-<summary>🔎 Tips on Creating a Secret</summary>
+<summary>Tips</summary>
+
+Secret:
 
 - To create a secret from literals, use the `kubectl create secret generic` command with `--from-literal` flags for each key-value pair.
 - Make sure to match the exact names and values specified in the objectives to ensure your solution passes verification.
 
-</details>
-
-<details>
-<summary>🔎 Tips on Deploying a Pod Using the Secret</summary>
+Pod:
 
 - In the pod definition, reference the secret in the `env` section of your container spec.
 - Use the `valueFrom.secretKeyRef` field to specify both the name of the secret and the key whose value you want to assign to the environment variable.
@@ -27,7 +26,7 @@ In this exercise, you'll securely manage sensitive information in Kubernetes usi
 </details>
 
 <details>
-<summary>✅ Solution: Creating and Using the Secret</summary>
+<summary>Solution</summary>
 
 1. **Create the Secret**:
 
@@ -73,8 +72,4 @@ In this exercise, you'll securely manage sensitive information in Kubernetes usi
    kubectl exec secret-pod -- env | grep PASSWORD
    ```
 
-This solution guides you through creating a secret with specific key-value pairs, deploying a pod that uses this secret, and verifying the secret's use within the pod.
-
 </details>
-
-Follow the objectives to create a secret and a pod that utilizes it. Use the tips and solutions for guidance if needed.
