@@ -1,8 +1,10 @@
-> **Progress: 1/3**
+**Step: 1/3**
 
 ## Fix the API Server Connectivity
 
 The Kubernetes API server is currently unresponsive. Diagnose the issue and restore its functionality.
+
+Note: it might take a while for functionality to be restored once the issue is fixed.
 
 <details>
 <summary>Tips</summary>

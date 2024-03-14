@@ -4,6 +4,8 @@
 
 The etcd cluster is in an unhealthy state due to a configuration issue. Diagnose and fix the issue to restore etcd cluster health.
 
+Note: it might take a while for functionality to be restored once the issue is fixed.
+
 <details>
 <summary>Tips</summary>
 
@@ -15,7 +17,7 @@ The etcd cluster is in an unhealthy state due to a configuration issue. Diagnose
 <details>
 <summary>Solution</summary>
 
-The etcd peer certificate path has been misconfigured. Correct the path in `/etc/kubernetes/manifests/etcd.yaml` back to `/etc/kubernetes/file/pki/etcd/peer.crt`, then restart the kubelet to apply the change.
+The etcd peer certificate path has been misconfigured. Correct the path in `/etc/kubernetes/manifests/etcd.yaml` back to `/etc/kubernetes/file/pki/etcd/peer.crt`.
 
 ```bash
 sudo sed -i 's+/etc/kubernetes/file/pki/etcd/peer.crt+/etc/kubernetes/pki/etcd/peer.crt+' /etc/kubernetes/manifests/etcd.yaml
