@@ -1,0 +1,25 @@
+{
+  "title": "Managing Secrets in Kubernetes",
+  "description": "Learn how to create and use secrets within pods to manage sensitive information securely.",
+  "details": {
+    "intro": {
+      "text": "intro.md"
+    },
+    "steps": [
+      {
+        "title": "Create and Deploy a Secret with a Pod",
+        "text": "step1/text.md",
+        "verify": "step1/verify.sh"
+      }
+    ],
+    "assets": {
+      "host01": []
+    },
+    "finish": {
+      "text": "finish.md"
+    }
+  },
+  "backend": {
+    "imageid": "kubernetes-kubeadm-2nodes"
+  }
+}
