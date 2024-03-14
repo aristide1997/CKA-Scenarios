@@ -60,14 +60,8 @@ Pod:
                  key: password
    ```
 
-3. **Deploy the Pod**:
-
-   ```
-   kubectl apply -f pod.yaml
-   ```
-
-4. **Verify Secret Access in Pod**:
-   ```
+3. **Verify Secret Access in Pod**:
+   ```bash
    kubectl exec secret-pod -- env | grep USERNAME
    kubectl exec secret-pod -- env | grep PASSWORD
    ```
