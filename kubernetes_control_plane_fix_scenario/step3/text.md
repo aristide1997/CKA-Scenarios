@@ -1,3 +1,5 @@
+**Step: 2/3**
+
 ## Correct Scheduler and Controller Manager Misconfigurations
 
 The Kubernetes Scheduler and Controller Manager are not functioning correctly. Investigate and resolve any configuration issues to ensure proper cluster operation.

@@ -1,4 +1,4 @@
-**Progress: 2/3**
+**Step: 2/3**
 
 ## Restore etcd Cluster Health
 
@@ -7,17 +7,18 @@ The etcd cluster is in an unhealthy state due to a configuration issue. Diagnose
 <details>
 <summary>Tips</summary>
 
+- Check the etcd pod log at `/var/log/pods`
 - Inspect the etcd manifest at `/etc/kubernetes/manifests/etcd.yaml` for misconfigurations.
-- Use `journalctl -u etcd` to review the etcd service logs for errors.
+
 </details>
 
 <details>
 <summary>Solution</summary>
 
-The etcd service's client URL has been misconfigured. Correct the `--listen-client-urls` setting in `/etc/kubernetes/manifests/etcd.yaml` back to `https://127.0.0.1:2379`, then restart the kubelet to apply the change.
+The etcd peer certificate path has been misconfigured. Correct the path in `/etc/kubernetes/manifests/etcd.yaml` back to `/etc/kubernetes/file/pki/etcd/peer.crt`, then restart the kubelet to apply the change.
 
 ```bash
-sudo sed -i 's/--listen-client-urls=https:\/\/127.0.0.1:12379/--listen-client-urls=https:\/\/127.0.0.1:2379/g' /etc/kubernetes/manifests/etcd.yaml
+sudo sed -i 's+/etc/kubernetes/file/pki/etcd/peer.crt+/etc/kubernetes/pki/etcd/peer.crt+' /etc/kubernetes/manifests/etcd.yaml
 ```
 
 </details>
