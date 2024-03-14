@@ -1,5 +1,5 @@
 {
-  "title": "Advanced Kubernetes Troubleshooting",
+  "title": "Kubernetes Controlplane Troubleshooting",
   "description": "Dive deep into Kubernetes internals to diagnose and resolve complex issues affecting cluster operations.",
   "details": {
     "intro": {
