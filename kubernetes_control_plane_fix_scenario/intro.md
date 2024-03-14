@@ -1,3 +1,7 @@
 # Diagnose and Fix Control Plane Issues
 
-    In this scenario, you're tasked with troubleshooting and resolving issues affecting the Kubernetes control plane components. You'll need to diagnose problems based on symptoms and logs, then apply fixes to ensure the cluster is fully operational. Prepare to use your investigative skills to ensure the API server, etcd, and scheduler are correctly configured and functioning.
+In this scenario, you're tasked with troubleshooting and resolving issues affecting the Kubernetes control plane components.
+
+You'll need to diagnose problems based on symptoms and logs, then apply fixes to ensure the cluster is fully operational.
+
+Prepare to use your investigative skills to ensure the API server, etcd, and scheduler are correctly configured and functioning.

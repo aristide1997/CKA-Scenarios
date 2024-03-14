@@ -1,3 +1,5 @@
+**Progress: 2/3**
+
 ## Restore etcd Cluster Health
 
 The etcd cluster is in an unhealthy state due to a configuration issue. Diagnose and fix the issue to restore etcd cluster health.

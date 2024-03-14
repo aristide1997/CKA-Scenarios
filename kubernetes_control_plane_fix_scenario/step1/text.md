@@ -1,4 +1,4 @@
-> **Progress: Step 1/3**
+> **Progress: 1/3**
 
 ## Fix the API Server Connectivity
 
