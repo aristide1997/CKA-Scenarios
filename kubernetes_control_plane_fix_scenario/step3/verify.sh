@@ -1,7 +1,5 @@
 #!/bin/bash
 
-#!/bin/bash
-
 # Check if the nginx pod is running
 POD_STATUS=$(kubectl get pods -o jsonpath='{.items[?(@.metadata.name=="nginx")].status.phase}')
 
