@@ -1,24 +1,19 @@
-**Step: 3/3**
+## Step 3: Investigate and Resolve Pod Scheduling Issue
 
-## Correct Scheduler and Controller Manager Misconfigurations
+In this step, your task is to deploy an `nginx` pod with image `nginx`. After deployment, you might notice that the pod is not running as expected. Investigate and understand why, then resolve any issues to get the pod running.
 
-The Kubernetes Scheduler and Controller Manager are not functioning correctly. Investigate and resolve any configuration issues to ensure proper cluster operation.
+**Important:** Deploying the pod is the first step. The crucial part is figuring out why it might not be running and fixing the issue.
 
 <details>
-<summary>Tips</summary>
+<summary>Tip</summary>
 
-- Double check the manifest files located in `/etc/kubernetes/manifests/`.
-- Inspect the kubelet logs for errors related to these components.
+Utilize `kubectl` commands to inspect pods and other resources within your cluster. Investigate any component that is not running correctly.
+
 </details>
 
 <details>
 <summary>Solution</summary>
 
-The manifest files for both the scheduler and controller manager have been renamed. Restore their original filenames in `/etc/kubernetes/manifests/` to ensure they are correctly managed by the kubelet.
-
-```bash
-sudo mv /etc/kubernetes/manifests/kube-scheduler.yaml.bak /etc/kubernetes/manifests/kube-scheduler.yaml
-sudo mv /etc/kubernetes/manifests/kube-controller-manager.yaml.bak /etc/kubernetes/manifests/kube-controller-manager.yaml
-```
+1. Correct the kube-scheduler's configuration by editing `/etc/kubernetes/manifests/kube-scheduler.yaml` on the control plane node, ensuring the image version is correct (v1.20.0)
 
 </details>

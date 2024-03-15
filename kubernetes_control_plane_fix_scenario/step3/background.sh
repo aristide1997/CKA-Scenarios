@@ -1,5 +1,5 @@
 #!/bin/bash
 
-# Rename the scheduler and controller manager manifest files
-mv /etc/kubernetes/manifests/kube-scheduler.yaml /etc/kubernetes/manifests/kube-scheduler.yaml.bak
-mv /etc/kubernetes/manifests/kube-controller-manager.yaml /etc/kubernetes/manifests/kube-controller-manager.yaml.bak
+# Create a kube-scheduler issue by using an incorrect scheduler image
+kubectl get pod -n kube-system | grep kube-scheduler | awk '{print $1}' | xargs -I {} kubectl delete pod {} -n kube-system
+sed -i 's|image: k8s.gcr.io/kube-scheduler:v1.20.0|image: k8s.gcr.io/kube-scheduler:invalid|g' /etc/kubernetes/manifests/kube-scheduler.yaml

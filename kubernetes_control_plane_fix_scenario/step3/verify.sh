@@ -1,27 +1,19 @@
 #!/bin/bash
 
-# Verify the scheduler and controller manager are correctly configured and running
-if [ -f /etc/kubernetes/manifests/kube-scheduler.yaml ] && [ -f /etc/kubernetes/manifests/kube-controller-manager.yaml ]; then
-    # Test scheduler by creating a test pod
-    kubectl run test-scheduler --restart=Never --image=busybox -- /bin/sleep 1000
-    sleep 5 # Give it time to schedule
-    if kubectl get pod test-scheduler | grep -q 'Running'; then
-        kubectl delete pod test-scheduler
-    else
-        kubectl delete pod test-scheduler
-        exit 1
-    fi
-    
-    # Test controller manager by creating a replicaset
-    kubectl create deployment test-controller --image=busybox
-    sleep 5 # Give it time for ReplicaSet controller to act
-    if [[ $(kubectl get rs -l app=test-controller -o jsonpath='{.items[0].status.readyReplicas}') -ge 1 ]]; then
-        kubectl delete deployment test-controller
-        exit 0
-    else
-        kubectl delete deployment test-controller
-        exit 1
-    fi
-else
+#!/bin/bash
+
+# Check if the nginx pod is running
+POD_STATUS=$(kubectl get pods -o jsonpath='{.items[?(@.metadata.name=="nginx")].status.phase}')
+
+# Assume kube-scheduler pod's name contains 'kube-scheduler' and is in the kube-system namespace
+SCHEDULER_POD=$(kubectl get pods -n kube-system --no-headers | grep kube-scheduler | awk '{print $1}')
+SCHEDULER_READY=$(kubectl get pod -n kube-system $SCHEDULER_POD -o jsonpath='{.status.conditions[?(@.type=="Ready")].status}')
+
+# Verify both nginx pod is running and kube-scheduler is ready
+if [[ "$POD_STATUS" == "Running" ]] && [[ "$SCHEDULER_READY" == "True" ]]; then 
+    echo "Success: The nginx pod is running and the kube-scheduler is functioning correctly."
+    exit 0
+else 
+    echo "Failure: Either the nginx pod is not running or the kube-scheduler is not functioning correctly."
     exit 1
 fi
