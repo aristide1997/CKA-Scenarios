@@ -9,7 +9,32 @@
       {
         "title": "Extract Pod Names",
         "text": "step1/text.md",
+        "background": "step1/background.sh",
         "verify": "step1/verify.sh"
+      },
+      {
+        "title": "List Namespaces with Labels",
+        "text": "step2/text.md",
+        "background": "step2/background.sh",
+        "verify": "step2/verify.sh"
+      },
+      {
+        "title": "Filter Pods by Status",
+        "text": "step3/text.md",
+        "background": "step3/background.sh",
+        "verify": "step3/verify.sh"
+      },
+      {
+        "title": "Retrieve Container Image Names",
+        "text": "step4/text.md",
+        "background": "step4/background.sh",
+        "verify": "step4/verify.sh"
+      },
+      {
+        "title": "Complex JSONPath Query",
+        "text": "step5/text.md",
+        "background": "step5/background.sh",
+        "verify": "step5/verify.sh"
       }
     ],
     "assets": {
