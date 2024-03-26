@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Prepare the expected list of container images, sorted and unique
-expected_images="mycustomimage:latest nginx redis"
+expected_images=$(kubectl get pods -n default -o jsonpath="{.items[*].spec.containers[*].image}")
 
 # Fetch user's output, normalize spaces, and prepare for comparison
 user_output=$(cat container_images.txt | tr -s ' ' | tr ' ' '\n' | sort -u | tr '\n' ' ')

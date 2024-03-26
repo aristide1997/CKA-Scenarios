@@ -1,6 +1,6 @@
 # Complex JSONPath Query
 
-For this advanced task, you need to identify all running pods in the `default` namespace with the label `app=frontend`, and extract both the pod names and the names of the nodes they are assigned to. Write this information to `filtered_pods_nodes.txt`, with each pod name and its node name on a new line, separated by a comma.
+For this advanced task, you need to identify all running pods in the `delta` namespace with the label `app=frontend`, and extract both the pod names and the names of the nodes they are assigned to. Write this information to `filtered_pods_nodes.txt`, with each pod name and its node name on a new line, separated by a comma.
 
 **Example Output in `filtered_pods_nodes.txt`:**
 frontend-running,node01
@@ -11,7 +11,7 @@ another-frontend-pod,node02
 <details><summary>Solution</summary>
 
 ```bash
-kubectl get pods -n default -l app=frontend -o jsonpath="{range .items[?(@.status.phase=='Running')]}{.metadata.name},{.spec.nodeName}{'\n'}{end}" > filtered_pods_nodes.txt
+kubectl get pods -n delta -l app=frontend -o jsonpath="{range .items[?(@.status.phase=='Running')]}{.metadata.name},{.spec.nodeName}{'\n'}{end}" > filtered_pods_nodes.txt
 ```
 
 </details>
