@@ -4,7 +4,7 @@
 
 The etcd cluster is in an unhealthy state due to a configuration issue. Diagnose and fix the issue to restore etcd cluster health.
 
-Note: it might take a while for functionality to be restored once the issue is fixed.
+Note: it might take a few moments for functionality to be restored once the issue is fixed.
 
 <details>
 <summary>Tips</summary>

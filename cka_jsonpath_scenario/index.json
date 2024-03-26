@@ -1,0 +1,25 @@
+{
+  "title": "Mastering JSONPath in Kubernetes",
+  "description": "Hone your skills in navigating and extracting information from Kubernetes resources using JSONPath queries. This scenario provides a series of progressively challenging tasks to deepen your understanding and proficiency.",
+  "details": {
+    "intro": {
+      "text": "intro.md"
+    },
+    "steps": [
+      {
+        "title": "Extract Pod Names",
+        "text": "step1/text.md",
+        "verify": "step1/verify.sh"
+      }
+    ],
+    "assets": {
+      "host01": []
+    },
+    "finish": {
+      "text": "finish.md"
+    }
+  },
+  "backend": {
+    "imageid": "kubernetes-kubeadm-2nodes"
+  }
+}
